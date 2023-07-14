@@ -14,12 +14,19 @@ class GithubService {
       });
 
       const commentUrl = response.data.html_url;
+      console.log(commentUrl);
       this.logger.logInfo(`Comment created successfully: ${commentUrl}`);
 
       return commentUrl;
     } catch (error) {
+      console.log(error);
       this.logger.logError(error);
     }
+  }
+
+  async test() {
+    this.logger.logError('ASDAD')
+    console.log('asdada')
   }
 
   async createPullRequestReview(review) {
