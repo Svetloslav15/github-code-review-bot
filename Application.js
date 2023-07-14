@@ -14,8 +14,6 @@ class Application {
   }
 
   async start() {
-    this.logger.start();
-    
     await this.configureMiddlewares();
     await this.configureEndpoints();
 
@@ -30,7 +28,7 @@ class Application {
   }
 
   async configureMiddlewares() {
-    //todo
+    this.app.use(express.json());
   }
 }
 
