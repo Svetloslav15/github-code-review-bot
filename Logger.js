@@ -17,11 +17,13 @@ class Logger {
 
     logInfo(message) {
         this.logger.info(message);
+        this.logger.info(message);
     }
     
     logError(message) {
         this.logger.error(message);
     }
 }
+
 
 module.exports = Logger;
