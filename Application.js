@@ -11,6 +11,7 @@ class Application {
     this.logger = new Logger();
     this.githubService = new GithubService(this);
     this.controller = new Controller(this);
+    console.log('testt')
   }
 
   async start() {

@@ -5,6 +5,8 @@ class Logger {
         this.logger = null;
         this.filePath = `logs/${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}.txt`;
         this.start();
+    console.log('testt')
+
     }
 
     start() {
