@@ -24,13 +24,29 @@ class GithubService {
     }
   }
 
-  async test() {
-    this.logger.logError('ASDAD')
-    console.log('asdada')
-  }
+  async createPullRequestReview(review, pullRequestNumber, filePath, line) {
+    try {
+      const response = await this.github.pulls.createReview({
+        owner: process.env.GITHUB_OWNER,
+        repo: process.env.GITHUB_REPO,
+        pull_number: pullRequestNumber,
+        body: 'Code review body',
+        event: 'COMMENT',
+        comments: [
+          {
+            path: filePath,
+            position: line,
+            body: review
+          }
+        ]
+      });
 
-  async createPullRequestReview(review) {
-    //todo
+      this.logger.logInfo(`Code review for PR-${pullRequestNumber} created successfully: ${response.data.html_url}`);
+      return response;
+    }
+    catch(error) {
+      this.logger.logError(error);
+    }
   }
 
   async getPullRequest(owner, repo, pullRequestNumber) {
