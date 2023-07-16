@@ -19,7 +19,6 @@ class GithubService {
 
       return commentUrl;
     } catch (error) {
-      console.log(error);
       this.logger.logError(error);
     }
   }
@@ -42,7 +41,6 @@ class GithubService {
       });
 
       this.logger.logInfo(`Code review for PR-${pullRequestNumber} created successfully: ${response.data.html_url}`);
-      this.logger.logInfo(`Code review for PR-${pullRequestNumber} created successfully: ${response.data.html_url}`);
       return response;
     }
     catch(error) {
@@ -50,7 +48,7 @@ class GithubService {
     }
   }
 
-  
+
   async getPullRequest(owner, repo, pullRequestNumber) {
     try {
       const response = await this.github.pulls.get({
